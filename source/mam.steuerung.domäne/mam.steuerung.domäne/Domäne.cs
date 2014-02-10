@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using mam.contracts;
 using mam.contracts.steuerung;
 
@@ -12,27 +8,59 @@ namespace mam.steuerung.domäne
     {
         public void HilfeAnfordern()
         {
-            throw new NotImplementedException();
+            var hilfeRufHandler = Hilferuf;
+            if (hilfeRufHandler != null)
+            {
+                hilfeRufHandler();
+            }
+
+            var hilfestatusGeändertHandler = HilfestatusGeändert;
+            if ( hilfestatusGeändertHandler != null )
+            {
+                hilfestatusGeändertHandler(Hilfestatus.HilfeAngefordert);
+            }
         }
 
         public void Zurücksetzen()
         {
-            throw new NotImplementedException();
+            var hilfestatusGeändertHandler = HilfestatusGeändert;
+            if ( hilfestatusGeändertHandler != null )
+            {
+                hilfestatusGeändertHandler( Hilfestatus.KeineHilfeAngefordert );
+            }
+
+            var funktionsstatusGeändertHandler = FunktionsstatusGeändert;
+            if ( funktionsstatusGeändertHandler != null )
+            {
+                funktionsstatusGeändertHandler( Funktionsstatus.Läuft );
+            }
         }
 
         public void Kaputtgehen()
         {
-            throw new NotImplementedException();
+            var funktionsstatusGeändertHandler = FunktionsstatusGeändert;
+            if ( funktionsstatusGeändertHandler != null )
+            {
+                funktionsstatusGeändertHandler( Funktionsstatus.Kaputt );
+            }
         }
 
         public void Reparieren()
         {
-            throw new NotImplementedException();
+            var funktionsstatusGeändertHandler = FunktionsstatusGeändert;
+            if ( funktionsstatusGeändertHandler != null )
+            {
+                funktionsstatusGeändertHandler( Funktionsstatus.Läuft );
+            }
         }
 
         public void Beruhigen()
         {
-            throw new NotImplementedException();
+            var hilfestatusGeändertHandler = HilfestatusGeändert;
+            if ( hilfestatusGeändertHandler != null )
+            {
+                hilfestatusGeändertHandler( Hilfestatus.HilfeUnterwegs );
+            }
         }
 
         public event Action<Hilfestatus> HilfestatusGeändert;
