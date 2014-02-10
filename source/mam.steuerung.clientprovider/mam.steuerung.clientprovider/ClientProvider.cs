@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
+using System.Net;
 using mam.contracts.steuerung;
 
 namespace mam.steuerung.clientprovider
@@ -11,12 +8,14 @@ namespace mam.steuerung.clientprovider
     {
         public void Dispose()
         {
-            throw new NotImplementedException();
+            // mach was, wenn nötig.
         }
 
         public void HilfeAnfordern()
         {
-            throw new NotImplementedException();
+            var wc = new WebClient();
+            var downloadString = "http:/" + ConfigurationSettings.AppSettings.Get("servicedesk.endpunkt") + "/plaseHelp";
+            wc.DownloadString( downloadString );
         }
     }
 }
