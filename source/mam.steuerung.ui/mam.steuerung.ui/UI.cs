@@ -13,9 +13,20 @@ namespace mam.steuerung.ui
         public void Starten()
         {
             _viewModel = new StartWindowViewModel(() => { Hilfe(); });
-            System.Windows.Application application = new System.Windows.Application();
+            var window = new StartWindow() { DataContext = _viewModel};
+            var application = System.Windows.Application.Current;
+            if (application == null)
+            {
+                application = new System.Windows.Application();
 
-            application.Run(new StartWindow() { DataContext = _viewModel});
+                application.Run(new StartWindow() { DataContext = _viewModel });
+            }
+            else
+            {
+                application.MainWindow = window;
+                window.Show();
+
+            }
         }
 
         public void HilfestatusAnzeigen(Hilfestatus status)
