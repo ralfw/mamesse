@@ -1,7 +1,10 @@
 ﻿using System;
-using mam.steuerung.serverportal;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ServerPortalTest
+namespace mam.steuerung.serverportal.tests
 {
     class Program
     {
