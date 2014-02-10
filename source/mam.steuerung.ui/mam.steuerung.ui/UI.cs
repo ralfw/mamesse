@@ -9,19 +9,33 @@ namespace mam.steuerung.ui
 {
     public class UI : IUI
     {
+        private StartWindowViewModel _viewModel;
         public void Starten()
         {
-            throw new NotImplementedException();
+            _viewModel = new StartWindowViewModel(() => { Hilfe(); });
+            System.Windows.Application application = new System.Windows.Application();
+
+            application.Run(new StartWindow() { DataContext = _viewModel});
         }
 
         public void HilfestatusAnzeigen(Hilfestatus status)
         {
-            throw new NotImplementedException();
+            _viewModel.Hilfestatus = status;
         }
 
         public void FunktionsstatusAnzeigen(Funktionsstatus status)
         {
-            throw new NotImplementedException();
+            _viewModel.Funktionsstatus = status;
+        }
+
+
+        private void Hilfe()
+        {
+            var tmp = Hilferuf;
+            if (tmp != null)
+            {
+                tmp();
+            }
         }
 
         public event Action Hilferuf;

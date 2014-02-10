@@ -1,0 +1,10 @@
+﻿<Window x:Class="mam.steuerung.ui.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StartWindow" Height="300" Width="300">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" Text="{Binding Hilfestatus}"></TextBlock>
+        <TextBlock DockPanel.Dock="Top" Text="{Binding Funktionsstatus}"></TextBlock>
+        <Button Command="{Binding HelpCommand}">Hilfe anfordern</Button>
+    </DockPanel>
+</Window>
