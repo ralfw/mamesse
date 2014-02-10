@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mam.contracts", "..\..\source.contracts\mam.contracts\mam.contracts\mam.contracts.csproj", "{FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mam.steuerung.ui", "..\..\source\mam.steuerung.ui\mam.steuerung.ui\mam.steuerung.ui.csproj", "{70C02B52-6106-457C-826B-4DC65D4A1F7E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1} = {FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mam.steuerung.serverportal", "..\..\source\mam.steuerung.serverportal\mam.steuerung.serverportal\mam.steuerung.serverportal.csproj", "{DB86A9C7-2E9F-4584-8C5B-5C04FBAA5E70}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1} = {FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mam.steuerung.domäne", "..\..\source\mam.steuerung.domäne\mam.steuerung.domäne\mam.steuerung.domäne.csproj", "{C72C0773-B491-4701-ADAA-0AF822F64E44}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1} = {FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mam.steuerung.clientprovider", "..\..\source\mam.steuerung.clientprovider\mam.steuerung.clientprovider\mam.steuerung.clientprovider.csproj", "{5D09B2C0-4A8B-4D0E-91B6-3E6E416A7679}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1} = {FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mam.steuerung.application", "..\..\source\mam.steuerung.application\mam.steuerung.application\mam.steuerung.application.csproj", "{1D986AF5-CA0F-4F20-AF59-F6E315D6152C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1} = {FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1}
+		{70C02B52-6106-457C-826B-4DC65D4A1F7E} = {70C02B52-6106-457C-826B-4DC65D4A1F7E}
+		{C72C0773-B491-4701-ADAA-0AF822F64E44} = {C72C0773-B491-4701-ADAA-0AF822F64E44}
+		{5D09B2C0-4A8B-4D0E-91B6-3E6E416A7679} = {5D09B2C0-4A8B-4D0E-91B6-3E6E416A7679}
+		{DB86A9C7-2E9F-4584-8C5B-5C04FBAA5E70} = {DB86A9C7-2E9F-4584-8C5B-5C04FBAA5E70}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC7101A-29A6-4A4F-BFD0-BBDE440ED4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70C02B52-6106-457C-826B-4DC65D4A1F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70C02B52-6106-457C-826B-4DC65D4A1F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70C02B52-6106-457C-826B-4DC65D4A1F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70C02B52-6106-457C-826B-4DC65D4A1F7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB86A9C7-2E9F-4584-8C5B-5C04FBAA5E70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB86A9C7-2E9F-4584-8C5B-5C04FBAA5E70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB86A9C7-2E9F-4584-8C5B-5C04FBAA5E70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB86A9C7-2E9F-4584-8C5B-5C04FBAA5E70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C72C0773-B491-4701-ADAA-0AF822F64E44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C72C0773-B491-4701-ADAA-0AF822F64E44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C72C0773-B491-4701-ADAA-0AF822F64E44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C72C0773-B491-4701-ADAA-0AF822F64E44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D09B2C0-4A8B-4D0E-91B6-3E6E416A7679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D09B2C0-4A8B-4D0E-91B6-3E6E416A7679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D09B2C0-4A8B-4D0E-91B6-3E6E416A7679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D09B2C0-4A8B-4D0E-91B6-3E6E416A7679}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D986AF5-CA0F-4F20-AF59-F6E315D6152C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D986AF5-CA0F-4F20-AF59-F6E315D6152C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D986AF5-CA0F-4F20-AF59-F6E315D6152C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D986AF5-CA0F-4F20-AF59-F6E315D6152C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
