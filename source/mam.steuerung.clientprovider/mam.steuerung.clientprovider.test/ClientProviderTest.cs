@@ -1,17 +1,17 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace mam.steuerung.clientprovider.test
 {
-    [TestClass]
+    [TestFixture]
     public class ClientProviderTest
     {
-        [TestMethod]
+        [Test, Explicit]
         public void Nutze_SendeDownloadString_MitGoogleAdresse()
         {
             ClientProvider.SendeDownloadString("http://www.google.de");
         }
 
-        [TestMethod, ExpectedException( typeof( System.Net.WebException ) )]
+        [Test, Explicit, ExpectedException( typeof( System.Net.WebException ) )]
         public void Nutze_SendeDownloadString_MitNichtVorhandenerAdresse()
         {
             ClientProvider.SendeDownloadString( "http://vklthidfvtnhuvhghdfuvhugrsdih.de" );
