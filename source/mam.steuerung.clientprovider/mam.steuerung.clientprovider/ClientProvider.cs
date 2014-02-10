@@ -13,8 +13,13 @@ namespace mam.steuerung.clientprovider
 
         public void HilfeAnfordern()
         {
-            var wc = new WebClient();
             var downloadString = "http:/" + ConfigurationSettings.AppSettings.Get("servicedesk.endpunkt") + "/plaseHelp";
+            SendeDownloadString( downloadString );
+        }
+
+        public static void SendeDownloadString(string downloadString)
+        {
+            var wc = new WebClient();
             wc.DownloadString( downloadString );
         }
     }
