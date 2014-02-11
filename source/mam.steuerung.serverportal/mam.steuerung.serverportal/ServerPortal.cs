@@ -11,23 +11,14 @@ namespace mam.steuerung.serverportal
 
         public static ServerPortal Instance;
 
-        public ServerPortal()
-        {
-            Instance = this;
-        }
+        public ServerPortal() { Instance = this; }
 
-        public void Dispose()
-        {
-            if (_server != null)
-            {
-                _server.Dispose();
-            }
-        }
 
         public void Starten()
         {
-            var conf = ConfigurationSettings.AppSettings.Get("steuerung.endpunkt");
-            _server = new NancyHost(new Uri(conf));
+            var endpunktAdresse = ConfigurationManager.AppSettings.Get("steuerung.endpunkt");
+            var nancyCfg = new HostConfiguration { UrlReservations = { CreateAutomatically = true } };
+            _server = new NancyHost(nancyCfg, new Uri(endpunktAdresse));
             _server.Start();
         }
 
@@ -35,7 +26,7 @@ namespace mam.steuerung.serverportal
         public event Action Fehler;
         public event Action Reparaturwunsch;
         public event Action HilfeUnterwegs;
-
+         
         public void Feuern(string command)
         {
             switch (command)
@@ -50,5 +41,8 @@ namespace mam.steuerung.serverportal
                     break;
             }
         }
+
+
+        public void Dispose() { _server.Dispose(); }
     }
 }
