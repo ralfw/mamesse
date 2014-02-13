@@ -34,7 +34,7 @@ namespace mam.steuerung.application
             using(server)
             using(servicedesk)
             {
-                server.Starten();
+                server.Starten(); 
                 ui.Starten();
             }
         }

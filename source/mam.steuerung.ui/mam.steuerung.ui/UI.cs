@@ -12,14 +12,15 @@ namespace mam.steuerung.ui
         private StartWindowViewModel _viewModel;
         public void Starten()
         {
-            _viewModel = new StartWindowViewModel(() => { Hilfe(); });
+            _viewModel = new StartWindowViewModel(Hilfe);
             var window = new StartWindow() { DataContext = _viewModel};
             var application = System.Windows.Application.Current;
+
             if (application == null)
             {
                 application = new System.Windows.Application();
 
-                application.Run(new StartWindow() { DataContext = _viewModel });
+                application.Run(window);
             }
             else
             {
@@ -42,12 +43,9 @@ namespace mam.steuerung.ui
 
         private void Hilfe()
         {
-            var tmp = Hilferuf;
-            if (tmp != null)
-            {
-                tmp();
-            }
+            Hilferuf();
         }
+
 
         public event Action Hilferuf;
     }

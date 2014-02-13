@@ -17,6 +17,8 @@ namespace mam.steuerung.serverportal.tests
                 server.Reparaturwunsch += () => Console.WriteLine("Reparaturwunsch");
                 server.HilfeUnterwegs += () => Console.WriteLine("Hilfe unterwegs");
                 server.Starten();
+
+                Console.WriteLine("Test running...");
                 Console.ReadLine();
             }
         }

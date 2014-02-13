@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Diagnostics;
 using mam.contracts.steuerung;
 using Nancy.Hosting.Self;
 
@@ -7,6 +8,8 @@ namespace mam.steuerung.serverportal
 {
     public class ServerPortal : IServerPortal
     {
+        private readonly TraceSource _ts = new TraceSource("mam.steuerung.serverportal", SourceLevels.All);
+
         private static NancyHost _server;
 
         public static ServerPortal Instance;
@@ -17,9 +20,12 @@ namespace mam.steuerung.serverportal
         public void Starten()
         {
             var endpunktAdresse = ConfigurationManager.AppSettings.Get("steuerung.endpunkt");
+            _ts.TraceEvent(TraceEventType.Information, 0, "Serverportal starten auf {0}", endpunktAdresse);
+
             var nancyCfg = new HostConfiguration { UrlReservations = { CreateAutomatically = true } };
             _server = new NancyHost(nancyCfg, new Uri(endpunktAdresse));
             _server.Start();
+            _ts.TraceEvent(TraceEventType.Start, 1, "Serverportal gestartet");
         }
 
         public event Action Zurücksetzungswunsch;
@@ -43,6 +49,10 @@ namespace mam.steuerung.serverportal
         }
 
 
-        public void Dispose() { _server.Dispose(); }
+        public void Dispose()
+        {
+            _server.Dispose();
+            _ts.TraceEvent(TraceEventType.Stop, 2, "Serverportal gestoppt");
+        }
     }
 }
