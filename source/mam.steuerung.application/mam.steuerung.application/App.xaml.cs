@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,8 +14,12 @@ namespace mam.steuerung.application
     /// </summary>
     public partial class App : Application
     {
+        private readonly TraceSource _ts = new TraceSource("mam.steuerung.application", SourceLevels.All);
+
         protected override void OnStartup(StartupEventArgs e)
         {
+            _ts.TraceEvent(TraceEventType.Start, 1, "application OnStartup...");
+
             var ui = new ui.UI();
             var dom = new domäne.Domäne();
             var server = new serverportal.ServerPortal();
@@ -34,9 +39,11 @@ namespace mam.steuerung.application
             using(server)
             using(servicedesk)
             {
-                server.Starten(); 
+                server.Starten();
                 ui.Starten();
             }
+
+            _ts.TraceEvent(TraceEventType.Stop, 2, "application OnStartup beendet");
         }
     }
 }

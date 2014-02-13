@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using mam.contracts;
 using mam.contracts.steuerung;
 
@@ -9,26 +11,23 @@ namespace mam.steuerung.ui
 {
     public class UI : IUI
     {
+        readonly TraceSource _ts = new TraceSource("mam.steuerung.ui", SourceLevels.All);
+
         private StartWindowViewModel _viewModel;
+
         public void Starten()
         {
-            _viewModel = new StartWindowViewModel(Hilfe);
-            var window = new StartWindow() { DataContext = _viewModel};
-            var application = System.Windows.Application.Current;
-
-            if (application == null)
-            {
-                application = new System.Windows.Application();
-
-                application.Run(window);
-            }
-            else
-            {
-                application.MainWindow = window;
-                window.Show();
-
-            }
+            Initialize();
+            Application.Current.MainWindow.ShowDialog();
         }
+
+        internal void Initialize()
+        {
+            _viewModel = new StartWindowViewModel(Hilfe);
+            var window = new StartWindow { DataContext = _viewModel };
+            Application.Current.MainWindow = window;
+        }
+
 
         public void HilfestatusAnzeigen(Hilfestatus status)
         {
