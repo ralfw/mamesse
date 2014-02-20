@@ -25,7 +25,7 @@ namespace mam.steuerung.serverportal
             var nancyCfg = new HostConfiguration { UrlReservations = { CreateAutomatically = true } };
             _server = new NancyHost(nancyCfg, new Uri(endpunktAdresse));
             _server.Start();
-            _ts.TraceEvent(TraceEventType.Start, 1, "Serverportal gestartet");
+            _ts.TraceEvent(TraceEventType.Start, 1, "Serverportal der Steuerung gestartet. ");
         }
 
         public event Action Zurücksetzungswunsch;
@@ -52,7 +52,7 @@ namespace mam.steuerung.serverportal
         public void Dispose()
         {
             _server.Dispose();
-            _ts.TraceEvent(TraceEventType.Stop, 2, "Serverportal gestoppt");
+            _ts.TraceEvent(TraceEventType.Stop, 2, "Serverportal der Steuerung gestoppt. ");
         }
     }
 }

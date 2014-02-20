@@ -6,6 +6,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using mam.steuerung.ui;
+using mam.steuerung.domäne;
+using mam.steuerung.serverportal;
+using mam.steuerung.clientprovider;
 
 namespace mam.steuerung.application
 {
@@ -20,10 +24,10 @@ namespace mam.steuerung.application
         {
             _ts.TraceEvent(TraceEventType.Start, 1, "application OnStartup...");
 
-            var ui = new ui.UI();
-            var dom = new domäne.Domäne();
-            var server = new serverportal.ServerPortal();
-            var servicedesk = new clientprovider.ClientProvider();
+            var ui = new UI();
+            var dom = new Domäne();
+            var server = new ServerPortal();
+            var servicedesk = new ClientProvider();
 
             ui.Hilferuf += dom.HilfeAnfordern;
             dom.HilfestatusGeändert += ui.HilfestatusAnzeigen;

@@ -46,7 +46,7 @@ namespace mam.steuerung.ui
         }
 
         RelayCommand _helpCommand;
-        private Action action;
+
         public ICommand HelpCommand
         {
             get

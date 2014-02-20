@@ -13,7 +13,7 @@ namespace mam.steuerung.clientprovider
 
         public void HilfeAnfordern()
         {
-            var downloadString = ConfigurationSettings.AppSettings.Get("servicedesk.endpunkt") + "/pleaseHelp";
+            var downloadString = ConfigurationSettings.AppSettings.Get("servicedesk.endpunkt") + "/pleasehelp";
             SendeDownloadString( downloadString );
         }
 
